@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name = "author" content = "Chen Chen">
+	<title>Coursera Dating</title>
+</head>
+
+
+<body>
+	<h1>Please Enter Your Details For Our Dating Website!</h1>
+	<form action="http://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php" enctype = "multipart/form-data" method="post" >  
+		<fieldset>
+			<legend>Your Face</legend>
+			<label for "image" >Upload your image:</label> 
+			<input type = "file" id = "image" name = "Your image" accept = "image/*" required> <br>
+			<label >Image preview:</label>		
+		</fieldset > <br>
+		
+		<fieldset >
+			<legend>Your General Details</legend>
+			<label for="name" >Name:</label>
+			<input type="Text"  placeholder = "Your full name" required ><br>
+			<label for="gender" >Gender:</label>
+			<input type = "radio" name = "gender" value = "Male" required>Male
+			<input type = "radio" name = "gender" value = "Female" required>Female<br>
+			<label for="age">Your age:</label>
+			<input type="number" min="0" max="99" step="1" value="18" id="age" name="age" required><br>
+		    <label for="birthday">Your birthday:</label>
+		    <input type="date" id="birthday" name="birthday"><br>
+		    <label for="color" >Your favorite color:</label>
+		    <input type="color" id="color" name="color"> <br>
+			<label for="color" >Your country:</label>
+			<select> 
+				<option value = "No Selection">No Selection</option>
+				<option value = "China">China</option>
+				<option value = "U.S.A.">U.S.A.</option>
+				<option value = "Japan">Japan</option>
+				<option value = "New Zealand">New Zealand</option>
+				<option value = "Brazil">Brazil</option>
+			</select> <br>
+		</fieldset> <br>
+		
+		<fieldset >
+			<legend>Your Indicators</legend>
+			<label for="height">Height:</label>
+			Short
+			<input type="range" min="0" max="100" step="5" value="50" id="mood" name="mood"> 
+			Tall <br>
+			<label for="salary">Salary:</label>
+		    Poor
+			<input type="range" min="0" max="100" step="5" value="50" id="mood" name="mood"> 
+			Rich <br>
+		</fieldset> <br>
+		
+		<fieldset >
+			<legend>Your Contact Information</legend>
+			<label for = "email" rquired> Email:</Label>
+			<input type = "email" name = "email" required> <br>
+			<label for = "tel"> Mobile:</Label>
+			<input type = "text"> <br>
+			<label for = "address";>Address:</label> 
+			<textarea> </textarea><br>
+			<label for = "Contact" >Method to contact you:</label>
+			<input type = "checkbox" name = "OptEmail">Email
+			<input type = "checkbox" name = "OptWhatsapp">Whatsapp
+			<input type = "checkbox" name = "OptIn-appChat">In-app chat
+		</fieldset> <br>
+	<input type = "submit">
+	</form>
+</body>
+</html>

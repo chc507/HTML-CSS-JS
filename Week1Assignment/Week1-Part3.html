@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name = "author" content = "Chen Chen">
+	<title>Coursera Dating</title>
+	<style>
+		label {
+			display: inline-block; 
+			text-align: top;
+			text-align: right; 
+		}
+		label:hover,input:hover{
+			font-size:25px
+			display: inline-block;
+			
+			
+		}
+		fieldset{
+			background:  lightyellow;
+			border: 10px solid yellow;
+			margin-bottom: 10px ;
+			width: 720px
+		}
+		
+		textarea{
+			vertical-align:top;
+			width:360px;
+			height:50px; 
+		}
+		
+		label.normalFormat{
+			width: 180px;
+		}
+		
+		label.buttonBox{
+			width: 180px;
+		}
+		
+		p.shortPoor{
+			display: inline-block;
+			color: white;
+			background: red ;
+
+		}
+		
+		p.tallRich{
+			display: inline-block;
+			color: white ;
+			background: purple;
+		}
+		
+		img{
+			vertical-align: top
+		}
+	</style>
+</head>
+
+
+<body>
+	<h1>Please Enter Your Details For Our Dating Website!</h1>
+	<form action="http://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php" enctype = "multipart/form-data" method="post" > 
+		<fieldset>
+			<legend>Your Face</legend>
+			<label for "image" class = "normalFormat">Your image:</label> 
+			<input type = "file" id = "image" name = "Your image" accept = "image/*" required> <br>
+			<label class = "normalFormat">Image preview:</label>
+			<img id = "preview" alt = "">			
+		</fieldset > <br>
+		
+		<fieldset >
+			<legend>Your General Details</legend>
+			<label for="name"; class = "normalFormat">Name:</label>
+			<input type="text" name = "name" placeholder = "Your full name" required ><br>
+			<label for="gender"; class = "buttonBox">Gender:</label>
+			<input type = "radio" name = "gender" value = "Male" required >Male
+			<input type = "radio" name = "gender" value = "Female" required >Female<br>
+			<label for="age"; class = "normalFormat">Your age:</label>
+			<input type="number" min="0" max="99" step="1" value="18" id="age" name="age" required><br>
+		    <label for="birthday"; class = "normalFormat">Your birthday:</label>
+		    <input type="date" id="birthday" name="birthday"><br>
+		    <label for="color"; class = "normalFormat">Your favorite color:</label>
+		    <input type="color" id="color" name="color"> <br>
+			<label for="color"; class = "normalFormat">Your country:</label>
+			<select> 
+				<option value = "No Selection">No Selection</option>
+				<option value = "China">China</option>
+				<option value = "U.S.A.">U.S.A.</option>
+				<option value = "Japan">Japan</option>
+				<option value = "New Zealand">New Zealand</option>
+				<option value = "Brazil">Brazil</option>
+			</select> <br>
+		</fieldset> <br>
+		
+		<fieldset >
+			<legend>Your Indicators</legend>
+			<label for="height"; class = "normalFormat">Height:</label>
+			<p class = "shortPoor">Short</p>
+			<input type="range" min="0" max="100" step="5" value="50" id="mood" name="mood"> 
+			<p class = "tallRich">Tall</p> <br>
+			<label for="salary"; class = "normalFormat">Salary:</label>
+		    <p class = "shortPoor">Poor</p> 
+			<input type="range" min="0" max="100" step="5" value="50" id="mood" name="mood"> 
+			<p class = "tallRich">Rich</p> <br>
+		</fieldset> <br>
+		
+		<fieldset >
+			<legend>Your Contact Information</legend>
+			<label for = "email"; class = "normalFormat" > Email:</Label>
+			<input type = "email" name = "email" required> <br>
+			<label for = "tel"; class = "normalFormat"> Mobile:</Label>
+			<input type = "text"> <br>
+			<label for = "address"; class = "normalFormat">Address:</label> 
+			<textarea> </textarea><br>
+			<label for = "Contact" ; class = "buttonBox">Method to contact you:</label>
+			<input type = "checkbox" name = "OptEmail">Email
+			<input type = "checkbox" name = "OptWhatsapp">Whatsapp
+			<input type = "checkbox" name = "OptIn-appChat">In-app chat
+		</fieldset> <br>
+	<input type = "submit">
+	</form>
+	<script src="https://www.cse.ust.hk/~rossiter/dating_web_site.js"></script>
+</body>
+</html>
