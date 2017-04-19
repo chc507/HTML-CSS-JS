@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name = "author" content = "Chen Chen">
+    <title>Matching Game</title>
+    <style>
+        img{
+            position:absolute;
+            
+        }
+        
+        div{
+            position: absolute;
+            width: 500px;
+            height: 500px;
+        }
+        
+        #rightSide{
+            left:500px;
+            border-left: 1px solid black
+        }
+    </style>
+	<script>
+        numberOfFaces = 5; 
+        function generateFaces(){
+            //numberOfFaces = 5; 
+            var theLeftSide = document.getElementById("leftSide"); 
+            for(var i = 0; i < numberOfFaces; i++){
+                smileFace = document.createElement("img");
+                smileFace.setAttribute("src","smile.png");
+                smileFace.style.top = Math.random()*400 + "px";
+                smileFace.style.left = Math.random()*400 + "px";
+                theLeftSide.appendChild(smileFace);
+            }
+            
+            //generate the right side 
+            var theRightside = document.getElementById("rightSide");
+            //clonning the node
+            var leftSideImages = theLeftSide.cloneNode(true); 
+            var theLastChild = leftSideImages.lastChild; 
+            theLastChild.parentNode.removeChild(theLastChild); //delete the Child
+            theRightside.appendChild(leftSideImages);
+            
+            
+            //handling the click events 
+           
+            
+            theLeftSide.lastChild.onclick = function nextLevel(event){
+                event.stopPropagation(); 
+                numberOfFaces += 5;
+                //delete all the smiling faces on the left side
+                while(theLeftSide.firstChild){
+                    theLeftSide.removeChild(theLeftSide.firstChild);
+                }
+                
+                //delete all the smiling faces on the right side
+                while(theRightside.firstChild){
+                    theRightside.removeChild(theRightside.firstChild);
+                }
+                generateFaces(); 
+            }
+            
+            var theBody = document.getElementsByTagName("body")[0];
+            theBody.onclick = function gameOver(event){
+                alert("You click the wrong area, game is over");
+                theBody.onclick = null; //disable the eventhandler for clicking on everywhere else in the body
+                theLeftSide.lastChild.onclick = null;    
+            }           
+        
+        }
+    </script>
+</head>
+<body onload="generateFaces()">
+    <h1>Matching Game</h1>
+    <P>Click on extra smiling face to the left</P>
+    <div id="leftSide">
+    </div>
+    
+    
+    <div id="rightSide">
+    
+    </div>
+</body >
+</html>
