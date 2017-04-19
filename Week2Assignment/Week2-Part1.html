@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name = "author" content = "Chen Chen">
+	<title>Coursera - Guess Color</title>
+	<script>
+		function do_game(){
+			availColor = ["green", "blue", "gold", "gray", "magneta", "orange","red", "white", "yellow"];
+			randomCol = Math.floor(Math.random()* availColor.length); //Generate random number from 0 - 9
+			rightColor = availColor[randomCol]; //Generate corresponding color, this is a global.
+			alert("The right color is " + rightColor)
+			
+			do{	//prompt user for input and use the selection as global variable 
+				alert("I am thinking of these colors\n\ngreen, blue, gold, gray, magneta, orange, red, white, yellow\n\nWhat color am I thinking of?");
+				userColor = prompt('Please select your color'); 
+				alert("The color you picked is " + userColor);   
+			}while(check_guess()== false);
+		}
+		
+		function check_guess(){
+			//rightColor = "green" 
+			var finished = false;
+			var found = false; 
+			var counter = availColor.length - 1; //Determine if the user enter the color within the array
+			while (counter >= 0){
+				if(userColor == availColor[counter]){
+					found = true; 
+					break;
+				}
+				else{
+					counter -= 1;
+				}
+			}
+			
+			if(found == true){			
+				if(userColor == rightColor){ //If color is found, print out the message and set the background color. 
+					finished = true;
+				}
+			}
+			
+			return finished;
+		}
+		
+	</script>
+</head>
+<body onload = "do_game()">
+</body>
+</html>

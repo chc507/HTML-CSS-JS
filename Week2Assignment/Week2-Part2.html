@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name = "author" content = "Chen Chen">
+	<title>Coursera - Guess Color</title>
+	<script>
+		function do_game(){
+			availColor = ["green", "blue", "gold", "gray", "magneta", "orange","red", "white", "yellow"];
+			randomCol = Math.floor(Math.random()* availColor.length); //Generate random number from 0 - 9
+			rightColor = availColor[randomCol]; //Generate corresponding color, this is a global.
+			times = 0; //This indicates the time user used, global variable
+			do{	//prompt user for input and use the selection as global variable 
+				alert("I am thinking of these colors\n\ngreen, blue, gold, gray, magneta, orange, red, white, yellow\n\nWhat color am I thinking of?");
+				userColor = prompt('Please select your color'); 
+				alert('The color you picked is ' + userColor);   
+				times += 1;
+			}while(check_guess()== false);
+		}
+		
+		function check_guess(){
+			var finished = false;
+			var found = false; 
+			var hint = "undecided"; //This indicates whether user input is higher or lower than correct input 
+			var counter = availColor.length - 1; //Determine if the user enter the color within the arra
+			while (counter >= 0){
+				if(userColor == availColor[counter]){
+					found = true; 
+					break;
+				}
+				else{
+					counter -= 1;
+				}
+			}
+			
+			if(found == false){
+				alert("Sorry, I don't recognize your color\n\nPlease try again.");				
+			}else{
+				if(userColor == rightColor){ //If color is found, print out the message and set the background color. 
+					myBody=document.getElementsByTagName("body")[0]; //Set body color to target color 
+					myBody.style.background= userColor;
+					finished = true;
+
+				}else{
+					if(userColor > rightColor){
+						hint = "higher"; 
+					}else{
+						hint = "lower"; 
+					}
+				}
+			}
+			
+			if(finished == true){
+				alert("Congratulations! You have guessed the color!\n\nIt took you "+times+" guess to finish the game!\n\nYou can see the color in the background.");
+			}else{
+				alert("Sorry, your guess is not correct\n\nHint: your color is alphabetically "+hint+" than mine.");
+			}
+			return finished;
+		}
+		
+	</script>
+</head>
+<body onload = "do_game()">
+</body>
+</html>
